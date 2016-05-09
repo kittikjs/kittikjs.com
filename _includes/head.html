@@ -1,0 +1,43 @@
+<head>
+  {% capture title %}{% if page.title %}{{ page.title }} &middot; {{ site.title }}{% else %}{{ site.title }}{% endif %}{% endcapture %}
+  {% capture description %}{% if page.description %}{{ page.description }}{% elsif page.article %}{{ page.excerpt | strip_html | strip_newlines | truncatewords: 20 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+  {% capture keywords %}{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}{% endcapture %}
+  {% capture canonical %}{{ site.url }}{{ site.baseurl }}{% if site.permalink contains '.html' %}{{ page.url }}{% elsif site.permalink contains category_dir %}{{ '/' | page.url | remove: 'index.html' | '/' }}{% else %}{{ page.url | remove: 'index.html' | '/' }}{% endif %}{% endcapture %}
+
+  <!-- GENERAL META TAGS -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="content-language" content="en">
+  <meta name="language" content="English">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <meta name="copyright" content="ghaiklor">
+  <meta name="author" content="Eugene Obrezkov, ghaiklor@gmail.com">
+  <meta name="reply-to" content="ghaiklor@gmail.com">
+  <meta name="coverage" content="Worldwide">
+  <meta name="distribution" content="Global">
+  <meta name="rating" content="General">
+  <meta name="target" content="all">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="{{ description }}"/>
+  <meta name="keywords" content="{{ keywords }}">
+  <title>{{ title }}</title>
+
+  <!-- OPEN GRAPH META TAGS -->
+  <meta property="og:site_name" content="{{ site.title }}"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="{{ page.title }}"/>
+  <meta property="og:description" content="{{ description }}"/>
+  <meta property="og:url" content="{{ canonical }}"/>
+
+  <!-- LINK META TAGS -->
+  <link rel="canonical" href="{{ canonical }}"/>
+  <link rel="apple-touch-icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- CSS STYLES -->
+  <link rel="stylesheet" href="/assets/css/foundation.min.css"/>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
