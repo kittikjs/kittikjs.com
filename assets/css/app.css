@@ -1,3 +1,10 @@
 html, body {
-  background: url("/assets/img/bg.png");
+  background-color: rgb(42, 58, 65);
+  overflow: hidden;
+}
+
+video.intro-video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
